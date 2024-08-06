@@ -8,6 +8,6 @@ import vn.hoidanit.laptopshop.domain.User;
 //crud: create, read, update, delete
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
-    User save(User hoidanit);
+    User save(User eric);
 
 }
