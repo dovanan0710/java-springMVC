@@ -49,7 +49,7 @@ public class UserController {
         return "redirect:/admin/user";
     }
 
-    @RequestMapping("/admin/user/create")
+    @RequestMapping("/admin/user/create") // GET
     public String getCreateUserPage(Model model) {
         model.addAttribute("newUser", new User());
         return "admin/user/create";
@@ -83,10 +83,19 @@ public class UserController {
         return "redirect:/admin/user";
     }
 
-    @GetMapping("/admin/user/delete/${id}")
+    @GetMapping("/admin/user/delete/{id}")
     public String getDeleteUserPage(Model model, @PathVariable long id) {
         model.addAttribute("id", id);
+        // User user=new User();
+        // user.setId(id);
+        model.addAttribute("newUser", new User());
         return "admin/user/delete";
+    }
+
+    @PostMapping("/admin/user/delete")
+    public String postDeleteUser(Model model, @ModelAttribute("newUser") User eric) {
+        this.userService.deleteAUser(eric.getId());
+        return "redirect:/admin/user";
     }
 
 }
