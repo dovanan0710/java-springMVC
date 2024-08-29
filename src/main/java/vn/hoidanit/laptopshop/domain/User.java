@@ -36,6 +36,22 @@ public class User {
     @OneToMany(mappedBy = "user") // mappedBy chỉ định User là "inverse side"
     private List<Order> orders;
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
     public long getId() {
         return id;
     }
