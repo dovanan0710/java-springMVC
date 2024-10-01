@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <!DOCTYPE html>
         <html lang="en">
 
         <head>
@@ -33,6 +34,7 @@
         </head>
 
         <body>
+
             <!-- Spinner Start -->
             <div id="spinner"
                 class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
@@ -96,10 +98,6 @@
                                                 role="tab" id="nav-about-tab" data-bs-toggle="tab"
                                                 data-bs-target="#nav-about" aria-controls="nav-about"
                                                 aria-selected="true">Description</button>
-                                            <button class="nav-link border-white border-bottom-0" type="button"
-                                                role="tab" id="nav-mission-tab" data-bs-toggle="tab"
-                                                data-bs-target="#nav-mission" aria-controls="nav-mission"
-                                                aria-selected="false">Reviews</button>
                                         </div>
                                     </nav>
                                     <div class="tab-content mb-5">
@@ -217,17 +215,13 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         <div class="col-lg-4 col-xl-3">
                             <div class="row g-4 fruite">
                                 <div class="col-lg-12">
-                                    <div class="input-group w-100 mx-auto d-flex mb-4">
-                                        <input type="search" class="form-control p-3" placeholder="keywords"
-                                            aria-describedby="search-icon-1">
-                                        <span id="search-icon-1" class="input-group-text p-3"><i
-                                                class="fa fa-search"></i></span>
-                                    </div>
+
                                     <div class="mb-4">
                                         <h4>Categories</h4>
                                         <ul class="list-unstyled fruite-categorie">
@@ -271,11 +265,14 @@
                 </div>
             </div>
             <!-- Single Product End -->
+
             <jsp:include page="../layout/footer.jsp" />
+
 
             <!-- Back to Top -->
             <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i
                     class="fa fa-arrow-up"></i></a>
+
 
             <!-- JavaScript Libraries -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -287,5 +284,6 @@
 
             <!-- Template Javascript -->
             <script src="/client/js/main.js"></script>
-
         </body>
+
+        </html>

@@ -12,14 +12,15 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "oders")
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private double totalPrice;
 
-    // Order many user one
+    // user id
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -27,7 +28,6 @@ public class Order {
     @OneToMany(mappedBy = "order")
     List<OrderDetail> orderDetails;
 
-    // userId
     public long getId() {
         return id;
     }

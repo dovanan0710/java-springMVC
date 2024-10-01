@@ -13,7 +13,6 @@
                 <title>Create Product - Hỏi Dân IT</title>
                 <link href="/css/styles.css" rel="stylesheet" />
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
                 <script>
                     $(document).ready(() => {
                         const avatarFile = $("#avatarFile");
@@ -22,9 +21,8 @@
                             $("#avatarPreview").attr("src", imgURL);
                             $("#avatarPreview").css({ "display": "block" });
                         });
-                    }); 
+                    });
                 </script>
-
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
             </head>
 
@@ -45,8 +43,8 @@
                                         <div class="col-md-6 col-12 mx-auto">
                                             <h3>Create a product</h3>
                                             <hr />
-                                            <form:form method="post" action="/admin/product/create"
-                                                modelAttribute="newProduct" class="row" enctype="multipart/form-data">
+                                            <form:form method="post" action="/admin/user/create" class="row"
+                                                enctype="multipart/form-data" modelAttribute="newProduct">
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label class="form-label">Name:</label>
                                                     <form:input type="text" class="form-control" path="name" />
@@ -55,9 +53,9 @@
                                                     <label class="form-label">Price:</label>
                                                     <form:input type="number" class="form-control" path="price" />
                                                 </div>
-                                                <div class="mb-3 col-12 col-md-12">
+                                                <div class="mb-3 col-12">
                                                     <label class="form-label">Detail description:</label>
-                                                    <form:input type="text" class="form-control" path="detailDesc" />
+                                                    <form:textarea type="text" class="form-control" path="detailDesc" />
                                                 </div>
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label class="form-label">Short description:</label>
@@ -78,18 +76,6 @@
                                                         <form:option value="LG">LG</form:option>
                                                         <form:option value="ACER">Acer</form:option>
                                                     </form:select>
-                                                </div>
-                                                <div class="mb-3 col-12 col-md-6">
-                                                    <label for="avatarFile" class="form-label">Avatar:</label>
-                                                    <input class="form-control" type="file" id="avatarFile"
-                                                        accept=".png, .jpg, .jpeg" name="hoidanitFile" />
-                                                </div>
-                                                <div class="col-12 mb-3">
-                                                    <img style="max-height: 250px; display: none;" alt="avatar preview"
-                                                        id="avatarPreview" />
-                                                </div>
-                                                <div class="col-12 mb-5">
-                                                    <button type="submit" class="btn btn-primary">Create</button>
                                                 </div>
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label class="form-label">Target:</label>
@@ -115,7 +101,6 @@
                                                 <div class="col-12 mb-5">
                                                     <button type="submit" class="btn btn-primary">Create</button>
                                                 </div>
-
                                             </form:form>
 
                                         </div>
