@@ -6,9 +6,12 @@ import vn.hoidanit.laptopshop.service.validator.RegisterChecked;
 
 @RegisterChecked
 public class RegisterDTO {
+
     @Size(min = 3, message = "FirstName phải có 3 ký tự")
     private String firstName;
+
     private String lastName;
+
     @Email(message = "Email không hợp lệ", regexp = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")
     private String email;
 
