@@ -70,7 +70,7 @@ public class HomePageController {
 
     @GetMapping("/login")
     public String getLoginPage(Model model) {
-
+        // login xong redirect về trang homepage
         return "client/auth/login";
     }
 
