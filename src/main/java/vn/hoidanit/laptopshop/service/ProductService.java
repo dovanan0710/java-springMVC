@@ -2,6 +2,7 @@ package vn.hoidanit.laptopshop.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -148,7 +149,7 @@ public class ProductService {
 
     public void handlePlaceOrder(
             User user, HttpSession session,
-            String receiverName, String receiverAddress, String receiverPhone) {
+            String receiverName, String receiverAddress, String receiverPhone, String paymentMethod, String uuid) {
 
         // step 1: get cart by user
         Cart cart = this.cartRepository.findByUser(user);
@@ -164,6 +165,9 @@ public class ProductService {
                 order.setReceiverAddress(receiverAddress);
                 order.setReceiverPhone(receiverPhone);
                 order.setStatus("PENDING");
+                order.setPaymentMethod(paymentMethod);
+                order.setPaymentStatus("PAYMENT_UNPAID");
+                order.setPaymentRef(paymentMethod.equals("COD") ? "UNKNOWN" : uuid);
 
                 double sum = 0;
                 for (CartDetail cd : cartDetails) {
@@ -196,5 +200,15 @@ public class ProductService {
             }
         }
 
+    }
+
+    public void updatePaymentStatus(String paymentRef, String paymentStatus) {
+        Optional<Order> orderOptional = this.orderRepository.findByPaymentRef(paymentRef);
+        if (orderOptional.isPresent()) {
+            Order order = orderOptional.get();
+            order.setPaymentStatus(paymentStatus);
+            order.setStatus("COMPLETED");
+            this.orderRepository.save(order);
+        }
     }
 }
